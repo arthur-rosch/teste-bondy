@@ -49,4 +49,4 @@ Para executar os scripts presentes nos arquivos `package.json`:
 
 ### Execução
 
-Para iniciar o frontend, entre na pasta `packages/frontend` e execute `yarn dev`. O aplicativo estará disponível em `http://localhost:4000`.
+Para iniciar o frontend, entre na pasta `packages/frontend` e execute `yarn run dev`. O aplicativo estará disponível em `http://localhost:4000`.
