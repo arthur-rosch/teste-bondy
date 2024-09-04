@@ -1,42 +1,37 @@
-# bondy-desafio-fullstack
+bondy-desafio-fullstack
+Estrutura do Repositório
 
-## Estrutura do repositório:
-Este projeto é um monorepo construído com Lerna (para saber mais => https://lerna.js.org/)
+backend (API GraphQL para realizar o desafio de backend)
+frontend (Repositório para criação do frontend do desafio)
 
-- `backend` (API Graphql para realizar desafio de backend)
-- `frontend` (Repo para criação do frontend do desafio)
-
-```
-packages/
-    backend/
-        src/
-            ...
-        package.json
-        serverless.yml
-    frontend/
-        package.json
-
-package.json
-```
+Instruções de Execução
 Para executar os scripts presentes nos arquivos package.json:
 
-- `yarn lerna run` + comando (ex: `yarn lerna run test:coverage`)
-- Em um projeto específico `yarn lerna run start --scope=backend`, o scope é o name que está no package.json
-- Também é possível executar os comandos normalmente entrando na pasta especifica do projeto.
+Para executar um comando em todos os pacotes: yarn lerna run <comando> (exemplo: yarn lerna run test:coverage)
+Para executar um comando em um pacote específico: yarn lerna run <comando> --scope=<nome-do-pacote> (exemplo: yarn lerna run start --scope=backend)
+Para executar comandos diretamente no pacote específico: Entre na pasta do pacote e execute o comando normalmente.
 
-## O que deve ser feito
+Backend
+Funcionalidades Implementadas
+  Mutation de Login: Foi criada uma mutation para realizar o login. Ela recebe e-mail e senha e faz a verificação no banco de dados. A mutation retorna todas as informações salvas no modelo User.
 
-### Backend:
-Utilizar a estrutura existente para criar uma mutation para realização de um login, a mesma deve receber email e senha e fazer verificação no banco se as informações estão corretas:
-- O projeto está configurado com Node 18, dar yarn na raiz para baixar dependências.
-- O projeto já está configurado apontado para o banco MongoDB de testes;
-- As configurações do banco estão no arquivo src/memoryDB/connection.ts
-- Já existe um usuário cadastrado com o email desafio@bondy.com.br e senha 123456, que está salva encriptado utilizando a lib bcrypt;
-- Essa mutation de login deve retornar todas as informações salvas na model User;
-- Ao rodar o projeto com `yarn start` será apresentado no console a url para o Playground para testes de graphql;
+Frontend
+Configuração
+Instalar Dependências: Entre na pasta packages/frontend e execute yarn para instalar as dependências do frontend.
 
-### Frontend:
-Criar um projeto frontend dentro da pasta packages/frontend:
-- O projeto deve se conectar com o backend e realizar as consultas via graphql;
-- Deve conter uma pagina de login, com campo de e-mail e senha;
-- Ao passar os dados corretamente o usuário deve ser direciona a uma pagina de boas-vindas;
+Tecnologias Utilizadas:
+
+Framework: Next.js
+Estilização: TailwindCSS
+Component Library: Radix UI
+Validação: Zod
+GraphQL: Utilizado para comunicação com o backend
+Funcionalidades Implementadas
+Página de Login: Permite ao usuário inserir e-mail e senha. Realiza uma consulta GraphQL para autenticação e, se as credenciais estiverem corretas, redireciona para a página de boas-vindas.
+
+Página de Registro: Permite o registro de novos usuários. Realiza uma consulta GraphQL para criar um novo usuário no backend.
+
+Página de Agradecimento: Exibe uma mensagem de boas-vindas após o login bem-sucedido.
+
+Execução
+Para iniciar o frontend, entre na pasta packages/frontend e execute yarn dev. O aplicativo estará disponível em http://localhost:4000.
